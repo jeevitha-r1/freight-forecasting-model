@@ -1,0 +1,1361 @@
+You are an expert frontend engineer and UI/UX designer specializing in Next.js, React, Tailwind CSS, data visualization, and enterprise analytics dashboards.
+
+Build a complete, production-quality frontend for the following problem statement.
+
+# PROJECT TITLE
+
+Freight Intelligence & Vessel Charter Optimization Platform
+
+# PROBLEM
+
+Bulk cargo procurement for India's East Coast ports currently relies heavily on daily freight-market exploration and repeated spot chartering. This creates reactive decision-making, makes it difficult to identify suitable market-entry windows, and can result in inefficient vessel utilization and higher idle time.
+
+The system should help logistics/chartering managers move from repeated individual spot contracts toward data-driven short-term and medium-term multiple-voyage contracts.
+
+The platform should combine:
+
+* Historical freight rates
+* Freight-rate forecasts
+* Vessel characteristics
+* Origin and destination port constraints
+* Cargo requirements
+* Port congestion
+* Commodity and economic indicators
+* Vessel feasibility
+* Idle-time estimation
+* Contract cost scenarios
+* Risk indicators
+
+The frontend must present these insights clearly and allow a user to enter a cargo requirement and obtain a complete chartering analysis.
+
+# TECH STACK
+
+Use:
+
+* Next.js 14+ with App Router
+* React
+* TypeScript
+* Tailwind CSS
+* Recharts for charts
+* Lucide React for icons
+* HTML semantic elements
+* Responsive design
+* No Bootstrap
+* No Material UI
+* No unnecessary UI framework
+
+Use reusable React components and clean folder architecture.
+
+The frontend should be ready to connect to a FastAPI backend later.
+
+For now, create realistic mock API/data services so that the entire UI works without a backend.
+
+# DESIGN DIRECTION
+
+Create a premium enterprise maritime analytics interface.
+
+Visual style:
+
+* Dark navy / deep blue primary theme
+* White and slate cards
+* Subtle gradients
+* Clean typography
+* Professional corporate appearance
+* Maritime/logistics aesthetic
+* Minimal glassmorphism
+* Subtle shadows
+* Rounded corners
+* High information density without looking cluttered
+
+Avoid:
+
+* Cartoonish UI
+* Excessive animations
+* Excessive gradients
+* Neon colors
+* Gaming-dashboard appearance
+* Generic SaaS landing-page appearance
+
+The application should look like a serious enterprise decision-support product used by a shipping/logistics company.
+
+Use colors consistently:
+
+* Blue = information
+* Green = favorable/positive
+* Amber = warning
+* Red = high risk
+* Gray = neutral
+
+# APPLICATION LAYOUT
+
+Create a persistent layout with:
+
+LEFT SIDEBAR
+
+Logo:
+
+"FREIGHTIQ"
+
+Subtitle:
+
+"Charter Intelligence"
+
+Navigation:
+
+1. Dashboard
+2. Charter Analysis
+3. Freight Forecast
+4. Vessel Intelligence
+5. Port Intelligence
+6. Contract Optimizer
+7. Risk Monitor
+
+Bottom of sidebar:
+
+* Settings
+* Help
+* User profile
+
+TOP NAVBAR
+
+Include:
+
+* Breadcrumb/page title
+* Global search
+* Data freshness indicator
+* Notification icon
+* User profile
+
+Main content should be responsive.
+
+On mobile, collapse the sidebar into a drawer.
+
+# PAGE 1 — EXECUTIVE DASHBOARD
+
+Route:
+
+/dashboard
+
+This should be the main landing page after login.
+
+Header:
+
+"Charter Intelligence Dashboard"
+
+Subtitle:
+
+"Market, vessel and contract insights for bulk cargo procurement"
+
+Show a "Last updated" indicator.
+
+## KPI CARDS
+
+Create six KPI cards:
+
+1. Current Freight Rate
+   Example:
+   "$18.50 / MT"
+   "+2.4% vs yesterday"
+
+2. 30-Day Forecast
+   "$17.20 / MT"
+   "-7.0% expected"
+
+3. Market Volatility
+   "Medium"
+   Score: 55/100
+
+4. Feasible Vessel Options
+   "12"
+   "Across selected routes"
+
+5. Expected Idle Time
+   "0.8 days"
+   "Per voyage"
+
+6. Potential Contract Saving
+   "$390K"
+   "vs spot strategy"
+
+Each card should have a relevant Lucide icon.
+
+## MARKET OVERVIEW CHART
+
+Large chart:
+
+"Freight Rate — Historical vs Forecast"
+
+Use Recharts.
+
+Show:
+
+* Historical rate line
+* Forecast line
+* Forecast confidence interval
+* Current rate marker
+
+X-axis:
+
+Date
+
+Y-axis:
+
+USD / MT
+
+Provide filters:
+
+* 7D
+* 30D
+* 60D
+* 90D
+
+Add vessel-type filter:
+
+* Handysize
+* Supramax
+* Panamax
+* Capesize
+
+## ROUTE PERFORMANCE TABLE
+
+Title:
+
+"Active Trade Routes"
+
+Columns:
+
+Route
+Origin
+Destination
+Vessel Type
+Current Rate
+30D Forecast
+Trend
+Risk
+Status
+
+Example routes:
+
+Australia → Paradip
+Australia → Vizag
+Indonesia → Dhamra
+Indonesia → Haldia
+USA → Gangavaram
+Mozambique → Paradip
+Russia → Haldia
+
+Use badges for trend:
+
+Increasing
+Stable
+Decreasing
+
+## PORT STATUS SECTION
+
+Show East Coast ports:
+
+* Paradip
+* Visakhapatnam
+* Gangavaram
+* Gopalpur
+* Dhamra
+* Sagar/Sandheads
+* Haldia
+
+Each card should display:
+
+* Congestion level
+* Average waiting time
+* Maximum draft
+* Berthing status
+* Handling capacity
+
+Use status indicators.
+
+## RISK ALERTS
+
+Create an alerts panel.
+
+Examples:
+
+"Paradip waiting time increased by 12%"
+
+"Panamax freight volatility elevated on Australia–India route"
+
+"Two vessels may exceed destination draft constraint"
+
+Each alert should show:
+
+* Severity
+* Time
+* Route/port
+* Short description
+
+# PAGE 2 — CHARTER ANALYSIS
+
+Route:
+
+/charter-analysis
+
+This is the most important user workflow.
+
+Header:
+
+"New Charter Analysis"
+
+Subtitle:
+
+"Evaluate vessel, market and contract options for a cargo requirement."
+
+Create a multi-section form.
+
+## CARGO DETAILS
+
+Fields:
+
+Commodity:
+Dropdown:
+
+* Coal
+* Iron Ore
+* Limestone
+* Other
+
+Cargo Quantity:
+Number input
+Unit: MT
+
+Required Delivery Date:
+Date picker
+
+Number of Voyages:
+Number input
+
+Contract Duration:
+Dropdown:
+
+* Spot
+* Short Term
+* Medium Term
+
+## ROUTE
+
+Origin Country:
+
+* Australia
+* USA
+* Mozambique
+* Russia
+* Indonesia
+
+Origin Port:
+
+Dynamic dropdown
+
+Destination:
+
+* Paradip
+* Visakhapatnam
+* Gangavaram
+* Gopalpur
+* Dhamra
+* Sagar/Sandheads
+* Haldia
+
+## VESSEL PREFERENCE
+
+Allow:
+
+Any vessel type
+Handysize
+Supramax
+Panamax
+Capesize
+
+Default:
+
+Any vessel type
+
+## ANALYZE BUTTON
+
+Large primary button:
+
+"Run Charter Analysis"
+
+Show loading animation when clicked.
+
+After analysis, display results below the form.
+
+# CHARTER ANALYSIS RESULT
+
+Create four result panels.
+
+## 1. MARKET OUTLOOK
+
+Display:
+
+Current Rate
+30-Day Forecast
+Forecast Direction
+Confidence
+Volatility
+
+Example:
+
+Current:
+$18.50/MT
+
+30-Day:
+$17.20/MT
+
+Trend:
+Decreasing
+
+Confidence:
+84%
+
+## 2. VESSEL RECOMMENDATION
+
+Display:
+
+"Recommended Vessel Type"
+
+PANAMAX
+
+Then show:
+
+DWT
+Draft
+LOA
+Beam
+Cargo Capacity
+Port Compatibility
+
+Add a compatibility progress bar.
+
+Example:
+
+Port Compatibility: 96%
+
+## 3. MARKET ENTRY WINDOW
+
+Create a visual timeline.
+
+Example:
+
+Today
+│
+├── Monitor
+│
+├── Preferred Entry Window
+│
+├── Preferred Entry Window
+│
+└── Delivery
+
+Display the forecast rate over the timeline.
+
+Do not make unsupported claims about guaranteed savings.
+
+Explain that the entry window is model-derived and depends on forecast confidence and assumptions.
+
+## 4. DECISION FACTORS
+
+Show transparent factors:
+
+* Freight forecast
+* Vessel feasibility
+* Port restrictions
+* Contract duration
+* Expected idle time
+* Market volatility
+* Deadhead distance
+
+# PAGE 3 — FREIGHT FORECAST
+
+Route:
+
+/freight-forecast
+
+Header:
+
+"Freight Rate Forecast"
+
+Create a professional analytics workspace.
+
+Filters:
+
+Origin
+Destination
+Vessel Type
+Commodity
+Forecast Horizon
+
+Main chart:
+
+Historical Freight Rate + Forecast
+
+Forecast horizons:
+
+7 Days
+15 Days
+30 Days
+60 Days
+90 Days
+
+Show:
+
+* Current rate
+* Predicted rate
+* Upper confidence bound
+* Lower confidence bound
+
+Below chart show:
+
+Forecast Summary cards:
+
+Current Rate
+7D Forecast
+30D Forecast
+90D Forecast
+Volatility
+Model Confidence
+
+## MODEL INFORMATION
+
+Show:
+
+Model:
+XGBoost / Time Series Ensemble
+
+Model Version:
+v1.0
+
+Last Trained:
+Date
+
+Training Data:
+Historical freight dataset
+
+Important:
+
+Present these as mock values for now and structure the frontend so they can later be replaced by backend API responses.
+
+# PAGE 4 — VESSEL INTELLIGENCE
+
+Route:
+
+/vessel-intelligence
+
+Header:
+
+"Vessel Intelligence"
+
+Create a vessel comparison table.
+
+Columns:
+
+Vessel
+Type
+DWT
+LOA
+Beam
+Draft
+Availability
+Origin Fit
+Destination Fit
+Overall Feasibility
+
+Filters:
+
+Vessel Type
+DWT
+Availability
+Route
+
+Use status badges:
+
+Compatible
+Partial
+Not Compatible
+
+Clicking a vessel should open a detailed side panel/modal.
+
+## VESSEL DETAIL
+
+Show:
+
+Vessel name
+Vessel type
+DWT
+LOA
+Beam
+Draft
+Availability
+Estimated speed
+Estimated fuel consumption
+
+Then:
+
+"Port Compatibility"
+
+Origin Port:
+✓ Draft
+✓ LOA
+✓ Beam
+
+Destination Port:
+✓ Draft
+✓ LOA
+✓ Beam
+
+Show reasons for any failed constraint.
+
+# PAGE 5 — PORT INTELLIGENCE
+
+Route:
+
+/port-intelligence
+
+Header:
+
+"East Coast Port Intelligence"
+
+Display seven port cards:
+
+Paradip
+Visakhapatnam
+Gangavaram
+Gopalpur
+Dhamra
+Sagar/Sandheads
+Haldia
+
+Each card:
+
+Port name
+Congestion status
+Average waiting time
+Maximum draft
+Maximum LOA
+Maximum beam
+Cargo handling rate
+Berthing status
+
+Create a comparison table.
+
+Add a "Port Constraint Analysis" section.
+
+User selects:
+
+Origin Port
+Destination Port
+Vessel
+
+Then display:
+
+Draft compatibility
+LOA compatibility
+Beam compatibility
+Cargo handling compatibility
+Estimated waiting time
+Estimated turnaround time
+
+# PAGE 6 — CONTRACT OPTIMIZER
+
+Route:
+
+/contract-optimizer
+
+This is the key page for the project's main objective.
+
+Header:
+
+"Contract Strategy Optimizer"
+
+Subtitle:
+
+"Compare spot and multiple-voyage contract scenarios."
+
+Input:
+
+Cargo
+Route
+Cargo Quantity
+Number of Voyages
+Contract Duration
+Vessel Type
+
+Then display three scenario cards:
+
+## SCENARIO 1
+
+Spot Contract
+
+Voyages:
+4
+
+Estimated Freight Cost:
+$5.40M
+
+Expected Idle Cost:
+$XX
+
+Total Estimated Cost:
+$X.XXM
+
+## SCENARIO 2
+
+Short-Term MVC
+
+Voyages:
+4
+
+Estimated Freight Cost:
+$5.20M
+
+Expected Idle Cost:
+$XX
+
+Total Estimated Cost:
+$X.XXM
+
+## SCENARIO 3
+
+Medium-Term MVC
+
+Voyages:
+8
+
+Estimated Freight Cost:
+$10.10M
+
+Expected Idle Cost:
+$XX
+
+Total Estimated Cost:
+$XXM
+
+Do NOT simply label one scenario "best".
+
+Instead show a neutral comparison table:
+
+Contract Type
+Number of Voyages
+Duration
+Estimated Freight
+Idle Cost
+Deadhead Cost
+Total Estimated Cost
+Risk Score
+Flexibility
+
+Then show:
+
+"Key Trade-offs"
+
+with explanations.
+
+Create a bar chart comparing estimated total costs.
+
+Create a second chart comparing:
+
+Cost vs Contract Duration
+
+# PAGE 7 — IDLE TIME ANALYSIS
+
+Route:
+
+/idle-analysis
+
+Header:
+
+"Vessel Utilization & Idle Time"
+
+Show:
+
+Average Idle Days
+Idle Cost
+Deadhead Distance
+Alternative Employment Opportunities
+
+Create a timeline:
+
+Voyage
+Loading
+Sailing
+Discharge
+Waiting
+Idle
+Repositioning
+
+Use a Gantt-style visualization.
+
+Create an "Alternative Employment" section.
+
+Example:
+
+Current Route:
+Australia → Paradip
+
+Potential Alternative:
+Australia → Vizag
+
+Show:
+
+Additional Distance
+Estimated Additional Cost
+Expected Idle Reduction
+
+# PAGE 8 — RISK MONITOR
+
+Route:
+
+/risk-monitor
+
+Header:
+
+"Market & Operational Risk Monitor"
+
+Create risk cards:
+
+Market Volatility
+Port Congestion
+Vessel Availability
+Commodity Risk
+Route Risk
+
+Each displays:
+
+Score
+Status
+Trend
+
+Create a risk heatmap:
+
+Rows:
+Australia
+USA
+Mozambique
+Russia
+Indonesia
+
+Columns:
+
+Paradip
+Vizag
+Gangavaram
+Gopalpur
+Dhamra
+Sagar
+Haldia
+
+Color intensity represents risk level.
+
+Below:
+
+"Early Warning Alerts"
+
+Examples:
+
+Freight volatility rising
+Port congestion increasing
+Vessel availability declining
+Draft restriction conflict
+Potential idle period
+
+# GLOBAL COMPONENTS
+
+Create reusable components:
+
+/components
+/layout
+Sidebar.tsx
+Navbar.tsx
+
+/dashboard
+KPICard.tsx
+MarketChart.tsx
+RouteTable.tsx
+PortStatusCard.tsx
+RiskAlerts.tsx
+
+/charter
+CargoForm.tsx
+RouteSelector.tsx
+VesselSelector.tsx
+AnalysisResult.tsx
+
+/vessel
+VesselTable.tsx
+VesselDetail.tsx
+FeasibilityBadge.tsx
+
+/forecast
+ForecastChart.tsx
+ForecastSummary.tsx
+
+/contracts
+ContractScenario.tsx
+ContractComparison.tsx
+CostChart.tsx
+
+/risk
+RiskCard.tsx
+RiskHeatmap.tsx
+
+/ui
+Button.tsx
+Card.tsx
+Badge.tsx
+Modal.tsx
+Select.tsx
+Loading.tsx
+
+# DATA TYPES
+
+Create TypeScript interfaces.
+
+Example:
+
+interface CargoRequest {
+cargoId: string;
+commodity: string;
+quantityMt: number;
+originPortId: string;
+destinationPortId: string;
+requiredDeliveryDate: string;
+numberOfVoyages: number;
+contractDurationMonths: number;
+}
+
+interface Vessel {
+vesselId: string;
+vesselName: string;
+vesselType: "HANDYSIZE" | "SUPRAMAX" | "PANAMAX" | "CAPESIZE";
+dwt: number;
+loaM: number;
+beamM: number;
+draftM: number;
+availableFrom: string;
+}
+
+interface Port {
+portId: string;
+portName: string;
+maxDraftM: number;
+maxL oaM: number;
+maxBeamM: number;
+cargoHandlingRateTpd: number;
+avgWaitingHours: number;
+}
+
+interface FreightForecast {
+routeId: string;
+vesselType: string;
+currentRate: number;
+forecast7d: number;
+forecast15d: number;
+forecast30d: number;
+forecast60d: number;
+forecast90d: number;
+lowerBound: number;
+upperBound: number;
+trend: "INCREASING" | "DECREASING" | "STABLE";
+confidence: number;
+modelVersion: string;
+generatedAt: string;
+}
+
+interface FeasibilityResult {
+vesselId: string;
+capacityFeasible: boolean;
+originPortFeasible: boolean;
+destinationPortFeasible: boolean;
+draftFeasible: boolean;
+loaFeasible: boolean;
+beamFeasible: boolean;
+cargoHandlingFeasible: boolean;
+overallFeasible: boolean;
+estimatedTurnaroundDays: number;
+estimatedIdleDays: number;
+}
+
+interface ContractScenario {
+contractType: "SPOT" | "SHORT_TERM_MVC" | "MEDIUM_TERM_MVC";
+numberOfVoyages: number;
+durationMonths: number;
+estimatedFreightCost: number;
+idleCost: number;
+deadheadCost: number;
+totalEstimatedCost: number;
+riskScore: number;
+flexibilityScore: number;
+}
+
+# MOCK DATA
+
+Create realistic mock data for:
+
+Ports:
+
+* Paradip
+* Visakhapatnam
+* Gangavaram
+* Gopalpur
+* Dhamra
+* Sagar/Sandheads
+* Haldia
+
+Origin countries:
+
+* Australia
+* USA
+* Mozambique
+* Russia
+* Indonesia
+
+Vessel types:
+
+* Handysize
+* Supramax
+* Panamax
+* Capesize
+
+Generate enough historical freight-rate points for charts.
+
+Generate forecast points for:
+
+7 days
+15 days
+30 days
+60 days
+90 days
+
+Use deterministic mock data rather than random data that changes on every render.
+
+# API SERVICE LAYER
+
+Create:
+
+/lib/api.ts
+
+Functions:
+
+getDashboardData()
+getFreightForecast()
+getVessels()
+getPorts()
+getFeasibility()
+runCharterAnalysis()
+getContractScenarios()
+getRiskData()
+
+Initially these should return mock data.
+
+Structure them so that replacing the mock implementation with FastAPI calls later is easy.
+
+Example:
+
+const API_BASE_URL =
+process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+Do not hard-code API calls throughout components.
+
+# BACKEND ENDPOINTS EXPECTED LATER
+
+Structure frontend service functions around these future endpoints:
+
+GET /api/v1/rates
+POST /api/v1/forecast
+GET /api/v1/forecast/{routeId}
+GET /api/v1/vessels
+GET /api/v1/ports/{portId}
+POST /api/v1/feasibility
+POST /api/v1/charter/optimize
+GET /api/v1/risk/{routeId}
+POST /api/v1/decision
+
+# INTERACTION FLOW
+
+The primary user journey should be:
+
+Dashboard
+↓
+Charter Analysis
+↓
+Enter Cargo Details
+↓
+Select Origin
+↓
+Select Destination
+↓
+Select Contract Duration
+↓
+Run Analysis
+↓
+Freight Forecast
+↓
+Vessel Feasibility
+↓
+Port Constraint Analysis
+↓
+Idle-Time Analysis
+↓
+Contract Scenario Comparison
+↓
+Risk Assessment
+↓
+Decision Summary
+
+# DECISION SUMMARY
+
+At the end of Charter Analysis, display a large summary card:
+
+"Charter Analysis Summary"
+
+Show:
+
+Route
+Cargo
+Recommended feasible vessel types
+Current freight rate
+Forecast range
+Expected idle time
+Contract scenarios
+Risk factors
+
+Then show:
+
+"Why this result?"
+
+List the measurable factors used by the system.
+
+Example:
+
+* Forecast trend
+* Vessel-port compatibility
+* Cargo capacity
+* Port handling constraints
+* Expected waiting time
+* Idle cost
+* Contract duration
+* Market volatility
+
+Avoid pretending that the system has certainty. Clearly distinguish:
+
+"Model forecast"
+
+from
+
+"User decision".
+
+# LOADING STATES
+
+Every API-driven section should have:
+
+* Skeleton loader
+* Loading spinner where appropriate
+* Error state
+* Retry button
+
+# EMPTY STATES
+
+Create professional empty states for:
+
+* No vessel selected
+* No forecast available
+* No route selected
+* No risk data
+* No contract scenarios
+
+# RESPONSIVENESS
+
+The application must work on:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+
+Desktop should prioritize data-rich layouts.
+
+Tables should become horizontally scrollable on smaller screens.
+
+# ACCESSIBILITY
+
+Use:
+
+* Semantic HTML
+* Accessible labels
+* Keyboard navigation
+* ARIA labels where required
+* Good contrast
+* Visible focus states
+
+# PERFORMANCE
+
+Use:
+
+* Next.js App Router
+* Server components where appropriate
+* Client components only where interactivity is required
+* Dynamic imports for heavy charts if useful
+* Avoid unnecessary re-renders
+* Keep mock data separate from UI components
+
+# FILE STRUCTURE
+
+Create approximately:
+
+app/
+layout.tsx
+page.tsx
+dashboard/
+page.tsx
+charter-analysis/
+page.tsx
+freight-forecast/
+page.tsx
+vessel-intelligence/
+page.tsx
+port-intelligence/
+page.tsx
+contract-optimizer/
+page.tsx
+idle-analysis/
+page.tsx
+risk-monitor/
+page.tsx
+
+components/
+lib/
+types/
+data/
+public/
+
+# LANDING PAGE
+
+The root "/" should redirect to "/dashboard".
+
+# IMPORTANT UX REQUIREMENT
+
+The dashboard should NOT feel like a collection of unrelated charts.
+
+The story should be:
+
+MARKET
+↓
+FORECAST
+↓
+VESSEL FEASIBILITY
+↓
+PORT CONSTRAINTS
+↓
+IDLE TIME
+↓
+CONTRACT OPTIONS
+↓
+CHARTERING DECISION
+
+Make this relationship visually obvious.
+
+# IMPORTANT PRODUCT REQUIREMENT
+
+The system's purpose is to help evaluate a transition from:
+
+Multiple individual spot contracts
+
+toward:
+
+Short-term / medium-term multiple-voyage contracts.
+
+Therefore, the Contract Optimizer must be a major feature, not a small card.
+
+# DEMO REQUIREMENT
+
+The application must be fully functional using mock data.
+
+A judge/user should be able to:
+
+1. Open dashboard.
+2. Go to Charter Analysis.
+3. Enter:
+   Commodity = Coal
+   Cargo = 75,000 MT
+   Origin = Australia
+   Destination = Paradip
+   Voyages = 4
+   Contract = Short Term
+4. Click "Run Charter Analysis".
+5. See forecast.
+6. See feasible vessels.
+7. See port constraints.
+8. See idle-time estimate.
+9. Compare Spot vs Short-Term MVC vs Medium-Term MVC.
+10. See risk information.
+11. See a complete analysis summary.
+
+# VISUAL POLISH
+
+Add subtle:
+
+* Hover states
+* Card transitions
+* Chart tooltips
+* Number animations only where useful
+* Progress indicators
+* Status badges
+* Timeline visualization
+* Skeleton loading
+
+Do not over-animate the application.
+
+# CODE QUALITY
+
+Write clean, maintainable TypeScript.
+
+Avoid:
+
+* any
+* duplicated components
+* hard-coded values inside JSX
+* giant page components
+* inline API calls
+* unnecessary useEffect
+* unnecessary state
+
+Use reusable components and typed data.
+
+Add comments only where logic is non-obvious.
+
+# FINAL REQUIREMENT
+
+Generate the complete frontend implementation, not just a design mockup.
+
+All navigation should work.
+
+All buttons should have meaningful behavior.
+
+All charts should render using mock data.
+
+The Charter Analysis workflow must function end-to-end with mock API responses.
+
+The project must run with:
+
+npm install
+
+npm run dev
+
+Make sure there are no TypeScript errors, broken imports, missing components, or placeholder screens.
+
+At the end, provide:
+
+1. Complete project structure
+2. Setup instructions
+3. Required npm packages
+4. Where to change the backend API URL
+5. Explanation of how to replace mock APIs with FastAPI endpoints
+6. Example environment variable:
+
+NEXT_PUBLIC_API_URL=http://localhost:8000

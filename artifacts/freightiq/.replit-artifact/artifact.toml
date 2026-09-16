@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "FreightIQ Charter Intelligence"
+description = "An enterprise maritime analytics workspace for freight forecasting, vessel feasibility, port constraints, idle-time analysis, and spot versus multiple-voyage contract decisions."
+version = "1.0.0"
+id = "artifacts/freightiq"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18971
+
+[services.development]
+run = "pnpm --filter @workspace/freightiq run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/freightiq", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/freightiq/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18971"
+BASE_PATH = "/"

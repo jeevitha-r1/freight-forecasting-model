@@ -1,0 +1,32 @@
+[
+    {
+        "id": "V001",
+        "name": "Ocean Star",
+        "vessel_type": "Container",
+        "length": 250,
+        "draft": 12,
+        "capacity": 5000,
+        "speed": 18,
+        "fuel_consumption": 120
+    },
+    {
+        "id": "V002",
+        "name": "Sea Titan",
+        "vessel_type": "Container",
+        "length": 320,
+        "draft": 16,
+        "capacity": 8000,
+        "speed": 20,
+        "fuel_consumption": 150
+    },
+    {
+        "id": "V003",
+        "name": "Marine Express",
+        "vessel_type": "Container",
+        "length": 280,
+        "draft": 13,
+        "capacity": 6500,
+        "speed": 19,
+        "fuel_consumption": 130
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "P001",
+        "name": "Port Alpha",
+        "latitude": 12.9716,
+        "longitude": 80.2188,
+        "max_length": 300,
+        "max_draft": 14
+    },
+    {
+        "id": "P002",
+        "name": "Port Beta",
+        "latitude": 13.0827,
+        "longitude": 80.2707,
+        "max_length": 350,
+        "max_draft": 18
+    },
+    {
+        "id": "P003",
+        "name": "Port Gamma",
+        "latitude": 12.9141,
+        "longitude": 74.8560,
+        "max_length": 260,
+        "max_draft": 12
+    }
+]
